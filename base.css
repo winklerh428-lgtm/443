@@ -1,394 +1,277 @@
-/* 
- * COMPLETE CUSTOM THEME - "Midnight Nebula" - FIXED VERSION
- * JETZT WIRKLICH ALLE BEREICHE ERFASST!
+/*
+ * Midnight Nebula – Complete Custom Theme
+ * ✅ Vollständig aktualisiert für die aktuellen Discord-Klassen
+ * 💎 Glassmorphism + Neon Glow + Blur-Effekte
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://mwittrien.github.io/BetterDiscordAddons/Themes/BlurpleRecolor/BlurpleRecolor.css');
-@import url('https://discord-custom-covers.github.io/usrbg/dist/usrbg.css');
 
-button {
-	--accentcolor: var(--accent-glow);
-}
-
-/* === ROOT VARIABLES - INDIVIDUELLES FARBSCHEMA === */
+/* ===============================
+   ROOT VARIABLES
+=============================== */
 :root {
-	--font-primary: 'Space Grotesk', sans-serif;
-	--font-display: var(--font-primary) !important;
-	
-	/* EIGENER HINTERGRUND */
-	--background-image: url('https://images.unsplash.com/photo-1532767153582-b1a0e5145009?q=80&w=1974&auto=format&fit=crop');
-	--home-image: url('https://i.pinimg.com/originals/8c/3d/9a/8c3d9a5b7c8d9e8f7a6b5c4d3e2f1a0b.gif');
-	
-	/* FARBPALETTE "MIDNIGHT NEBULA" */
-	--avatar-size: 36px;
-	--nebula-purple: 88, 28, 135;
-	--nebula-magenta: 162, 28, 175;
-	--nebula-pink: 190, 24, 93;
-	--nebula-glow: 236, 72, 153;
-	
-	/* BASIS-HINTERGRUNDFARBEN */
-	--background-solid: #0f0719;
-	--background-solid-dark: #0a0512;
-	--background-solid-darker: #05030a;
-	
-	/* AKZENTFARBEN */
-	--accent: var(--nebula-magenta);
-	--accent-alt: var(--nebula-purple);
-	--accent-glow: var(--nebula-pink);
-	
-	/* BASIS VARIABLEN */
-	--md-black: 0, 0, 0;
-	--dm-white: 255, 255, 255;
-	
-	/* BLURPLE RECOLOR */
-	--accentcolor: var(--accent);
-	--vaccentcolor-hover: rgb(var(--accent-glow));
-	--vaccentcolor-active: rgb(var(--accent-glow));
-	
-	/* ZUSÄTZLICHE CUSTOM FARBEN */
-	--text-soft: rgba(var(--dm-white), 0.85);
-	--text-dim: rgba(var(--dm-white), 0.45);
-	--hover-overlay: rgba(var(--nebula-pink), 0.15);
-	--border-glow: rgba(var(--nebula-glow), 0.3);
+  /* Fonts */
+  --font-primary: 'Space Grotesk', sans-serif;
+  --font-display: var(--font-primary);
+
+  /* Nebula Colors */
+  --nebula-purple: 88, 28, 135;
+  --nebula-magenta: 162, 28, 175;
+  --nebula-pink: 190, 24, 93;
+  --nebula-glow: 236, 72, 153;
+
+  /* Background */
+  --background-solid: #0f0719;
+  --background-solid-dark: #0a0512;
+  --background-solid-darker: #05030a;
+
+  /* Accent Colors */
+  --accent: var(--nebula-magenta);
+  --accent-alt: var(--nebula-purple);
+  --accent-glow: var(--nebula-pink);
+
+  /* Text */
+  --md-black: 0, 0, 0;
+  --dm-white: 255, 255, 255;
+  --text-soft: rgba(var(--dm-white), 0.85);
+  --text-dim: rgba(var(--dm-white), 0.45);
+
+  /* Hover & Borders */
+  --hover-overlay: rgba(var(--nebula-pink), 0.15);
+  --border-glow: rgba(var(--nebula-glow), 0.3);
+
+  /* Background Images */
+  --background-image: url('https://images.unsplash.com/photo-1532767153582-b1a0e5145009?q=80&w=1974&auto=format&fit=crop');
+  --home-image: url('https://i.pinimg.com/originals/8c/3d/9a/8c3d9a5b7c8d9e8f7a6b5c4d3e2f1a0b.gif');
 }
 
-/* === GRUNDLEGENDE THEME-ANPASSUNGEN - JETZT MIT ALLEN CONTAINERN === */
-:not(div[class*="userProfile"][class*="unThemed"]).theme-dark,
-:not(div[class*="userProfile"]).theme-light,
-div[class*="userProfile"][class*="unThemed"].theme-light {
-	/* STANDARD DISCORD VARIABLEN */
-	--background-primary: var(--background-solid);
-	--background-mobile-primary: var(--background-primary);
-	--background-secondary: var(--background-solid-dark);
-	--background-mobile-secondary: var(--background-secondary);
-	--background-secondary-alt: var(--background-solid-darker);
-	--background-tertiary: rgba(var(--md-black), 0.95);
-	--background-floating: rgba(var(--nebula-purple), 0.25);
-	--background-accent: rgba(var(--accent), 0.8);
-	--background-message-hover: rgba(var(--nebula-pink), 0.1);
-	--channeltextarea-background: rgba(var(--md-black), 0.3);
-	--activity-card-background: rgba(var(--nebula-purple), 0.2);
-	--deprecated-store-bg: transparent;
-	--background-modifier-hover: rgba(var(--nebula-magenta), 0.2);
-	--background-modifier-active: rgba(var(--nebula-pink), 0.25);
-	--background-modifier-selected: rgba(var(--nebula-glow), 0.3);
-	--elevation-low: inset 0 -1px 0 0 rgba(var(--nebula-pink), 0.2);
-	--channels-default: rgba(var(--dm-white), 0.5);
-	--deprecated-quickswitcher-input-background: var(--background-solid-dark);
-	--header-primary: rgb(var(--nebula-glow));
-	--header-secondary: rgba(var(--dm-white), 0.8);
-	--text-normal: var(--text-soft);
-	--text-muted: var(--text-dim);
-	--interactive-muted: rgba(var(--dm-white), 0.2);
-	--interactive-normal: rgba(var(--dm-white), 0.6);
-	--interactive-hover: rgb(var(--nebula-glow));
-	--interactive-active: rgb(var(--nebula-pink));
-	--deprecated-card-bg: rgba(var(--nebula-purple), 0.15);
-	--text-link: rgb(var(--nebula-glow));
-	--focus-primary: rgb(var(--nebula-pink));
-    --modal-background: rgba(var(--nebula-purple), 0.25);
-    --modal-footer-background: rgba(var(--nebula-purple), 0.4);
+/* ===============================
+   GLOBAL APP FIX
+=============================== */
+#app-mount {
+  background: var(--background-image) center/cover no-repeat fixed !important;
+  color: var(--text-soft) !important;
 }
 
-::selection {
-	background-color: rgba(var(--nebula-glow), 0.4);
+#app-mount::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(var(--md-black), 0.35);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+  z-index: -1;
 }
 
-/* === !!! FIX FÜR DIE FREUNDESLISTE UND ACTIVITY BEREICHE !!! === */
-
-/* Hauptcontainer der Friend-Activity-Liste (rechte Spalte) */
-div[class^="nowPlayingColumn"] {
-    background: rgba(var(--nebula-purple), 0.2) !important;
-    backdrop-filter: blur(8px) !important;
+/* ===============================
+   PANELS / CONTAINERS
+=============================== */
+[class*="app"],
+[class*="base"],
+[class*="container"],
+[class*="content"],
+[class*="wrapper"],
+[class*="sidebar"],
+[class*="membersWrap"],
+[class*="privateChannels"] {
+  background-color: rgba(var(--md-black), 0.85) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
 }
 
-/* Jede einzelne Friend-Activity-Card */
-div[class^="nowPlayingColumn"] [class*="container-"],
-div[class^="nowPlayingColumn"] [class*="activity-"],
-div[class^="nowPlayingColumn"] [class*="inset-"] {
-    background: rgba(var(--nebula-purple), 0.3) !important;
-    border: 1px solid var(--border-glow) !important;
-    border-radius: 8px !important;
-    margin: 8px !important;
-    backdrop-filter: blur(4px) !important;
-}
-
-/* Der "Aktivität von Freunden" Header */
-div[class^="nowPlayingColumn"] [class*="header-"] {
-    background: rgba(var(--nebula-purple), 0.4) !important;
-    color: rgb(var(--nebula-glow)) !important;
-    border-bottom: 1px solid var(--border-glow) !important;
-}
-
-/* Empty State (wenn keine Freunde online) */
-div[class^="nowPlayingColumn"] [class*="empty-"] {
-    background: rgba(var(--nebula-purple), 0.2) !important;
-}
-
-/* Die komplette Friends-Seite (wenn du auf "Freunde" klickst) */
-div[class*="peopleColumn-"] {
-    background: rgba(var(--nebula-purple), 0.15) !important;
-    backdrop-filter: blur(8px) !important;
-}
-
-/* Jede einzelne Freundeszeile in der Liste */
-div[class*="peopleColumn-"] [class*="peopleListItem-"] {
-    background: rgba(var(--nebula-purple), 0.2) !important;
-    border-bottom: 1px solid var(--border-glow) !important;
-}
-
-div[class*="peopleColumn-"] [class*="peopleListItem-"]:hover {
-    background: rgba(var(--nebula-glow), 0.15) !important;
-}
-
-/* Der aktive Freund (wenn ausgewählt) */
-div[class*="peopleColumn-"] [class*="selected-"] {
-    background: rgba(var(--nebula-magenta), 0.25) !important;
-}
-
-/* Der Bereich, wo die Aktivität des Freundes steht (Spiele, Musik, etc.) */
-[class*="activity-"],
-[class*="userActivity-"] {
-    background: rgba(var(--nebula-purple), 0.25) !important;
-    border-radius: 6px !important;
-    padding: 4px 8px !important;
-}
-
-/* === ALLE PANELS, LISTEN UND CONTAINER - JETZ WIRKLICH ALLE === */
-
-/* Private Channels (DM-Liste) */
-#private-channels {
-    background: rgba(var(--nebula-purple), 0.2) !important;
-    backdrop-filter: blur(8px) !important;
-}
-
-#private-channels [class*="channel-"] {
-    background: transparent !important;
-}
-
-#private-channels [class*="channel-"]:hover {
-    background: rgba(var(--nebula-glow), 0.1) !important;
-}
-
-/* Serverliste selbst */
+/* ===============================
+   SIDEBAR / SERVERLIST / DM LIST
+=============================== */
 ul[data-list-id='guildsnav'] {
-	--background-secondary: var(--background-solid);
-    --background-primary: rgba(var(--nebula-purple), 0.3);
-	margin-bottom: 70px;
-	background-color: rgba(var(--nebula-purple), 0.25);
-	backdrop-filter: blur(12px);
-	border-right: 1px solid var(--border-glow);
-	box-shadow: inset -10px 0px 30px -10px rgba(var(--nebula-glow), 0.2);
+  background-color: rgba(var(--nebula-purple), 0.25) !important;
+  backdrop-filter: blur(12px);
+  border-right: 1px solid var(--border-glow);
+  margin-bottom: 70px;
+  box-shadow: inset -10px 0px 30px -10px rgba(var(--nebula-glow), 0.2);
 }
 
-/* Mitgliederliste */
-.container-2o3qEW {
-	--background-secondary: rgba(var(--nebula-purple), 0.25);
-	--background-modifier-hover: rgba(var(--nebula-glow), 0.15);
-	--background-modifier-active: rgba(var(--nebula-pink), 0.2);
-	--background-modifier-selected: rgba(var(--nebula-magenta), 0.25);
-    background: rgba(var(--md-black), 0.85) !important;
-    backdrop-filter: blur(8px) !important;
-}
-
-/* Kategorien in der Mitgliederliste */
-.container-2o3qEW [class*="membersGroup-"] {
-    color: rgb(var(--nebula-glow)) !important;
-    font-weight: 600 !important;
-}
-
-/* === CHAT BEREICH === */
-div[class^='chat'] {
-	--background-floating: rgba(var(--nebula-purple), 0.35);
-    background: transparent !important;
-}
-
-div[class^="channelTextArea-"] {
-	--background-secondary: rgba(var(--nebula-purple), 0.2);
-	box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.15), 0 0 20px rgba(var(--nebula-glow), 0.1);
-	margin-bottom: 24px;
-	margin-top: 12px;
-	border-radius: 8px;
-	backdrop-filter: blur(8px);
-}
-
-div[class^="channelTextArea-"]:focus-within {
-	box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.4), 0 0 30px rgba(var(--nebula-glow), 0.2);
-}
-
-/* === NACHRICHTEN === */
-div[id^="chat-messages-"] {
-	margin-left: 8px;
-	margin-right: 8px;
-	border-radius: 8px;
-	--background-primary: rgba(var(--nebula-purple), 0.15);
-	backdrop-filter: blur(4px);
-}
-
-/* === CUSTOM SCROLLBARS === */
-::-webkit-scrollbar {
-	width: 16px !important;
-}
-
-::-webkit-scrollbar-thumb {
-	border-radius: 10px !important;
-	border: 4px solid transparent !important;
-	background-color: rgba(var(--nebula-glow), 0.7) !important;
-	background-clip: padding-box !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-	background-color: rgba(var(--nebula-pink), 0.9) !important;
-}
-
-::-webkit-scrollbar-track {
-	visibility: visible !important;
-	border-radius: 10px !important;
-	border: 4px solid transparent !important;
-	background-color: rgba(var(--nebula-purple), 0.2) !important;
-	background-clip: padding-box !important;
-}
-
-/* === TITLEBAR === */
-div[class*="typeWindows-"]::after {
-	content: '✨ MIDNIGHT NEBULA ✨';
-	font-weight: 600;
-	line-height: 32px;
-	color: rgb(var(--nebula-glow));
-	font-size: 13px;
-	letter-spacing: 1px;
-	position: absolute;
-	padding: 0 16px;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 32px;
-	background: rgba(var(--nebula-purple), 0.4);
-	backdrop-filter: blur(8px);
-	z-index: -1;
-	text-shadow: 0 0 10px rgba(var(--nebula-glow), 0.5);
-}
-
-/* === HOME BUTTON === */
+/* Home Button */
 div[data-list-item-id="guildsnav___home"] {
-	background: var(--home-image) center/cover no-repeat;
-	border-radius: 50%;
-	box-shadow: 0 0 15px rgba(var(--nebula-glow), 0.3);
-	transition: all 0.3s ease;
+  background: var(--home-image) center/cover no-repeat;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(var(--nebula-glow), 0.3);
+  transition: all 0.3s ease;
 }
 
 div[data-list-item-id="guildsnav___home"]:hover {
-	transform: scale(1.1);
-	box-shadow: 0 0 25px rgba(var(--nebula-glow), 0.6);
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(var(--nebula-glow), 0.6);
 }
 
-/* === MENTIONS === */
+/* ===============================
+   FRIENDS LIST / ACTIVITY
+=============================== */
+div[class^="nowPlayingColumn"] {
+  background: rgba(var(--nebula-purple), 0.2) !important;
+  backdrop-filter: blur(8px);
+}
+
+div[class^="nowPlayingColumn"] [class*="container-"],
+div[class^="nowPlayingColumn"] [class*="activity-"],
+div[class^="nowPlayingColumn"] [class*="inset-"] {
+  background: rgba(var(--nebula-purple), 0.3) !important;
+  border: 1px solid var(--border-glow) !important;
+  border-radius: 8px !important;
+  margin: 8px !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* ===============================
+   CHAT
+=============================== */
+[class*="chatContent"] {
+  background: transparent !important;
+}
+
+[class*="channelTextArea"] {
+  background: rgba(var(--nebula-purple), 0.2) !important;
+  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.15), 0 0 20px rgba(var(--nebula-glow), 0.1);
+  margin: 12px 0 24px 0;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+}
+
+[class*="channelTextArea"]:focus-within {
+  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.4), 0 0 30px rgba(var(--nebula-glow), 0.2);
+}
+
+/* Chat Messages */
+[id^="chat-messages-"] {
+  margin: 0 8px;
+  border-radius: 8px;
+  background: rgba(var(--nebula-purple), 0.15) !important;
+  backdrop-filter: blur(4px);
+}
+
+/* ===============================
+   BUTTONS
+=============================== */
+button[class*="button-"][class*="color"]:hover,
+.bd-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(var(--nebula-glow), 0.4);
+}
+
+/* ===============================
+   SCROLLBARS
+=============================== */
+::-webkit-scrollbar {
+  width: 16px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px !important;
+  border: 4px solid transparent !important;
+  background-color: rgba(var(--nebula-glow), 0.7) !important;
+  background-clip: padding-box !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--nebula-pink), 0.9) !important;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px !important;
+  border: 4px solid transparent !important;
+  background-color: rgba(var(--nebula-purple), 0.2) !important;
+  background-clip: padding-box !important;
+}
+
+/* ===============================
+   HOVER / SELECTED EFFECTS
+=============================== */
+[class*="channel"]:hover,
+div[class*="peopleListItem-"]:hover {
+  background: rgba(var(--nebula-glow), 0.15) !important;
+  box-shadow: 0 0 10px rgba(var(--nebula-glow), 0.5);
+}
+
+[class*="selected-"] {
+  background: rgba(var(--nebula-magenta), 0.25) !important;
+}
+
 .mention {
-	color: rgb(var(--nebula-glow)) !important;
-	background-color: rgba(var(--nebula-pink), 0.2);
-	padding: 3px 8px;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(var(--nebula-glow), 0.2);
+  color: rgb(var(--nebula-glow)) !important;
+  background-color: rgba(var(--nebula-pink), 0.2);
+  padding: 3px 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(var(--nebula-glow), 0.2);
 }
 
-.mention:hover {
-	background-color: rgba(var(--nebula-glow), 0.3) !important;
-}
-
-/* === CODEBLÖCKE === */
+/* ===============================
+   CODE BLOCKS
+=============================== */
 pre code.hljs {
-	background-color: rgba(var(--nebula-purple), 0.3);
-	color: rgba(var(--dm-white), 0.9);
-	padding: 1.2em;
-	border-radius: 8px;
-	border: 1px solid rgba(var(--nebula-glow), 0.3);
+  background-color: rgba(var(--nebula-purple), 0.3);
+  color: rgba(var(--dm-white), 0.9);
+  padding: 1.2em;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--nebula-glow), 0.3);
 }
 
 html code.inline {
-	background: rgba(var(--nebula-pink), 0.2);
-	color: rgb(var(--nebula-glow));
-	padding: 0.3em 0.8em;
-	border-radius: 5px;
+  background: rgba(var(--nebula-pink), 0.2);
+  color: rgb(var(--nebula-glow));
+  padding: 0.3em 0.8em;
+  border-radius: 5px;
 }
 
-/* === BUTTONS === */
-button[class*="button-"][class*="color"]:hover,
-.bd-button:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 5px 15px rgba(var(--nebula-glow), 0.4);
-}
-
-/* === TOOLTIPS === */
-div[class^="tooltip-"] {
-	--background-floating: rgba(var(--nebula-purple), 0.9);
-	--text-normal: rgb(var(--nebula-glow));
-	backdrop-filter: blur(8px);
-	border: 1px solid rgba(var(--nebula-glow), 0.3);
-	box-shadow: 0 0 15px rgba(var(--nebula-glow), 0.3);
-}
-
-/* === USER PANEL (UNTEN LINKS) === */
-div[class^='sidebar-']>section>div:last-child {
-	background: rgba(var(--nebula-purple), 0.3);
-	backdrop-filter: blur(16px);
-	height: 70px;
-	padding: 0 18px;
-	width: calc(100% + 72px);
-	position: absolute;
-	left: -72px;
-	bottom: 0;
-	border-top: 1px solid rgba(var(--nebula-glow), 0.3);
-}
-
-/* === MODALS === */
+/* ===============================
+   MODALS / POPUPS
+=============================== */
 [class*="modal-"] {
-	background: rgba(var(--nebula-purple), 0.25) !important;
-	backdrop-filter: blur(20px);
-	border: 1px solid rgba(var(--nebula-glow), 0.3);
-	box-shadow: 0 0 50px rgba(var(--nebula-glow), 0.2);
+  background: rgba(var(--nebula-purple), 0.25) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--nebula-glow), 0.3);
+  box-shadow: 0 0 50px rgba(var(--nebula-glow), 0.2);
 }
 
-/* === FORUM CHANNELS === */
-li[class^="card-"]>div[class^="container-"] {
-    background: rgba(var(--nebula-purple), 0.25);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(var(--nebula-glow), 0.2);
-    transition: all 0.3s ease;
+/* ===============================
+   TITLEBAR / HEADER
+=============================== */
+div[class*="typeWindows-"]::after {
+  content: '✨ MIDNIGHT NEBULA ✨';
+  font-weight: 600;
+  line-height: 32px;
+  color: rgb(var(--nebula-glow));
+  font-size: 13px;
+  letter-spacing: 1px;
+  position: absolute;
+  padding: 0 16px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  background: rgba(var(--nebula-purple), 0.4);
+  backdrop-filter: blur(8px);
+  z-index: -1;
+  text-shadow: 0 0 10px rgba(var(--nebula-glow), 0.5);
 }
 
-li[class^="card-"]>div[class^="container-"]:hover {
-    border-color: rgba(var(--nebula-glow), 0.5);
-    box-shadow: 0 0 25px rgba(var(--nebula-glow), 0.2);
-}
-
-/* === SPEZIELLE AKZENTE === */
-[class*="selected-"] [class*="name-"] {
-	color: rgb(var(--nebula-glow)) !important;
-	font-weight: 600;
-	text-shadow: 0 0 8px rgba(var(--nebula-glow), 0.4);
-}
-
-[class*="unread-"] {
-	background-color: rgb(var(--nebula-glow)) !important;
-	box-shadow: 0 0 10px rgb(var(--nebula-glow));
-}
-
-/* === HAUPT-HINTERGRUND === */
-body {
-	background: var(--background-image) center/cover no-repeat fixed;
-}
-
-/* === LAYER FÜR TIEFE === */
+/* ===============================
+   FINAL LAYER FOR DEPTH
+=============================== */
 #app-mount::before {
-	content: '';
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: rgba(var(--md-black), 0.3);
-	backdrop-filter: blur(2px);
-	pointer-events: none;
-	z-index: -1;
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(var(--md-black), 0.3);
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ===============================
+   SELECTION
+=============================== */
+::selection {
+  background-color: rgba(var(--nebula-glow), 0.4);
 }
