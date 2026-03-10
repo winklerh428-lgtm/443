@@ -1,7 +1,7 @@
 /*
- * Midnight Nebula – Complete Custom Theme
- * ✅ Vollständig aktualisiert für die aktuellen Discord-Klassen
- * 💎 Glassmorphism + Neon Glow + Blur-Effekte
+ * Midnight Nebula – Full Fix Theme
+ * ✅ Komplett funktionierend für aktuelle Discord Version
+ * 🌌 Avatare korrekt, Panels transparent, Serverliste klar
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
@@ -10,9 +10,7 @@
    ROOT VARIABLES
 =============================== */
 :root {
-  /* Fonts */
   --font-primary: 'Space Grotesk', sans-serif;
-  --font-display: var(--font-primary);
 
   /* Nebula Colors */
   --nebula-purple: 88, 28, 135;
@@ -21,43 +19,32 @@
   --nebula-glow: 236, 72, 153;
 
   /* Background */
-  --background-solid: #0f0719;
-  --background-solid-dark: #0a0512;
-  --background-solid-darker: #05030a;
-
-  /* Accent Colors */
-  --accent: var(--nebula-magenta);
-  --accent-alt: var(--nebula-purple);
-  --accent-glow: var(--nebula-pink);
+  --background-image: url('https://images.unsplash.com/photo-1532767153582-b1a0e5145009?q=80&w=1974&auto=format&fit=crop');
+  --background-overlay: rgba(0,0,0,0.35);
 
   /* Text */
-  --md-black: 0, 0, 0;
-  --dm-white: 255, 255, 255;
-  --text-soft: rgba(var(--dm-white), 0.85);
-  --text-dim: rgba(var(--dm-white), 0.45);
+  --text-soft: rgba(255,255,255,0.85);
+  --text-dim: rgba(255,255,255,0.45);
 
-  /* Hover & Borders */
-  --hover-overlay: rgba(var(--nebula-pink), 0.15);
+  /* Borders / Hover */
   --border-glow: rgba(var(--nebula-glow), 0.3);
-
-  /* Background Images */
-  --background-image: url('https://images.unsplash.com/photo-1532767153582-b1a0e5145009?q=80&w=1974&auto=format&fit=crop');
-  --home-image: url('https://i.pinimg.com/originals/8c/3d/9a/8c3d9a5b7c8d9e8f7a6b5c4d3e2f1a0b.gif');
+  --hover-overlay: rgba(var(--nebula-pink),0.15);
 }
 
 /* ===============================
-   GLOBAL APP FIX
+   MAIN BACKGROUND
 =============================== */
 #app-mount {
   background: var(--background-image) center/cover no-repeat fixed !important;
   color: var(--text-soft) !important;
+  font-family: var(--font-primary);
 }
 
 #app-mount::before {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(var(--md-black), 0.35);
+  background: var(--background-overlay);
   backdrop-filter: blur(3px);
   pointer-events: none;
   z-index: -1;
@@ -67,57 +54,61 @@
    PANELS / CONTAINERS
 =============================== */
 [class*="app"],
-[class*="base"],
 [class*="container"],
 [class*="content"],
 [class*="wrapper"],
 [class*="sidebar"],
 [class*="membersWrap"],
 [class*="privateChannels"] {
-  background-color: rgba(var(--md-black), 0.85) !important;
+  background-color: rgba(15,7,25,0.3) !important;
   backdrop-filter: blur(10px);
   border-radius: 8px;
 }
 
 /* ===============================
-   SIDEBAR / SERVERLIST / DM LIST
+   SERVER LIST & HOME BUTTON
 =============================== */
 ul[data-list-id='guildsnav'] {
-  background-color: rgba(var(--nebula-purple), 0.25) !important;
-  backdrop-filter: blur(12px);
+  background-color: rgba(var(--nebula-purple),0.2) !important;
+  backdrop-filter: blur(8px);
   border-right: 1px solid var(--border-glow);
   margin-bottom: 70px;
-  box-shadow: inset -10px 0px 30px -10px rgba(var(--nebula-glow), 0.2);
+  box-shadow: inset -10px 0px 30px -10px rgba(var(--nebula-glow),0.2);
 }
 
 /* Home Button */
 div[data-list-item-id="guildsnav___home"] {
-  background: var(--home-image) center/cover no-repeat;
+  background: url('https://i.pinimg.com/originals/8c/3d/9a/8c3d9a5b7c8d9e8f7a6b5c4d3e2f1a0b.gif') center/cover no-repeat;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(var(--nebula-glow), 0.3);
+  box-shadow: 0 0 15px rgba(var(--nebula-glow),0.3);
   transition: all 0.3s ease;
 }
 
 div[data-list-item-id="guildsnav___home"]:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(var(--nebula-glow), 0.6);
+  box-shadow: 0 0 25px rgba(var(--nebula-glow),0.6);
+}
+
+/* Overlay vor Servericons (leicht lila-glow statt schwarz) */
+[class*="guildsWrapper-"]::before {
+  background: rgba(var(--nebula-purple),0.15) !important;
+  backdrop-filter: blur(6px) !important;
 }
 
 /* ===============================
    FRIENDS LIST / ACTIVITY
 =============================== */
 div[class^="nowPlayingColumn"] {
-  background: rgba(var(--nebula-purple), 0.2) !important;
-  backdrop-filter: blur(8px);
+  background: rgba(var(--nebula-purple),0.15) !important;
+  backdrop-filter: blur(6px);
 }
 
 div[class^="nowPlayingColumn"] [class*="container-"],
-div[class^="nowPlayingColumn"] [class*="activity-"],
-div[class^="nowPlayingColumn"] [class*="inset-"] {
-  background: rgba(var(--nebula-purple), 0.3) !important;
+div[class^="nowPlayingColumn"] [class*="activity-"] {
+  background: rgba(var(--nebula-purple),0.25) !important;
   border: 1px solid var(--border-glow) !important;
   border-radius: 8px !important;
-  margin: 8px !important;
+  margin: 6px !important;
   backdrop-filter: blur(4px) !important;
 }
 
@@ -129,32 +120,63 @@ div[class^="nowPlayingColumn"] [class*="inset-"] {
 }
 
 [class*="channelTextArea"] {
-  background: rgba(var(--nebula-purple), 0.2) !important;
-  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.15), 0 0 20px rgba(var(--nebula-glow), 0.1);
+  background: rgba(var(--nebula-purple),0.2) !important;
+  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow),0.15), 0 0 20px rgba(var(--nebula-glow),0.1);
   margin: 12px 0 24px 0;
   border-radius: 8px;
   backdrop-filter: blur(8px);
 }
 
 [class*="channelTextArea"]:focus-within {
-  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow), 0.4), 0 0 30px rgba(var(--nebula-glow), 0.2);
+  box-shadow: inset 0 0 0 2px rgba(var(--nebula-glow),0.4), 0 0 30px rgba(var(--nebula-glow),0.2);
 }
 
 /* Chat Messages */
 [id^="chat-messages-"] {
   margin: 0 8px;
   border-radius: 8px;
-  background: rgba(var(--nebula-purple), 0.15) !important;
+  background: rgba(var(--nebula-purple),0.15) !important;
   backdrop-filter: blur(4px);
 }
 
 /* ===============================
-   BUTTONS
+   AVATARS
+=============================== */
+img[class*="avatar-"] {
+  position: relative !important;
+  z-index: 1 !important;
+  transform: none !important;
+}
+
+/* ===============================
+   BUTTONS / HOVER
 =============================== */
 button[class*="button-"][class*="color"]:hover,
 .bd-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(var(--nebula-glow), 0.4);
+  box-shadow: 0 5px 15px rgba(var(--nebula-glow),0.4);
+}
+
+/* Hover Effekte für Channels / Friends */
+[class*="channel"]:hover,
+div[class*="peopleListItem-"]:hover {
+  background: rgba(var(--nebula-glow),0.15) !important;
+  box-shadow: 0 0 10px rgba(var(--nebula-glow),0.5);
+}
+
+[class*="selected-"] {
+  background: rgba(var(--nebula-magenta),0.25) !important;
+}
+
+/* ===============================
+   MENTIONS
+=============================== */
+.mention {
+  color: rgb(var(--nebula-glow)) !important;
+  background-color: rgba(var(--nebula-pink),0.2);
+  padding: 3px 8px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(var(--nebula-glow),0.2);
 }
 
 /* ===============================
@@ -167,90 +189,44 @@ button[class*="button-"][class*="color"]:hover,
 ::-webkit-scrollbar-thumb {
   border-radius: 10px !important;
   border: 4px solid transparent !important;
-  background-color: rgba(var(--nebula-glow), 0.7) !important;
+  background-color: rgba(var(--nebula-glow),0.7) !important;
   background-clip: padding-box !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(var(--nebula-pink), 0.9) !important;
+  background-color: rgba(var(--nebula-pink),0.9) !important;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 10px !important;
   border: 4px solid transparent !important;
-  background-color: rgba(var(--nebula-purple), 0.2) !important;
+  background-color: rgba(var(--nebula-purple),0.2) !important;
   background-clip: padding-box !important;
 }
 
 /* ===============================
-   HOVER / SELECTED EFFECTS
-=============================== */
-[class*="channel"]:hover,
-div[class*="peopleListItem-"]:hover {
-  background: rgba(var(--nebula-glow), 0.15) !important;
-  box-shadow: 0 0 10px rgba(var(--nebula-glow), 0.5);
-}
-
-[class*="selected-"] {
-  background: rgba(var(--nebula-magenta), 0.25) !important;
-}
-
-.mention {
-  color: rgb(var(--nebula-glow)) !important;
-  background-color: rgba(var(--nebula-pink), 0.2);
-  padding: 3px 8px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(var(--nebula-glow), 0.2);
-}
-
-/* ===============================
-   CODE BLOCKS
+   CODEBLOCKS / MODALS
 =============================== */
 pre code.hljs {
-  background-color: rgba(var(--nebula-purple), 0.3);
-  color: rgba(var(--dm-white), 0.9);
+  background-color: rgba(var(--nebula-purple),0.3);
+  color: rgba(255,255,255,0.9);
   padding: 1.2em;
   border-radius: 8px;
-  border: 1px solid rgba(var(--nebula-glow), 0.3);
+  border: 1px solid rgba(var(--nebula-glow),0.3);
 }
 
 html code.inline {
-  background: rgba(var(--nebula-pink), 0.2);
+  background: rgba(var(--nebula-pink),0.2);
   color: rgb(var(--nebula-glow));
   padding: 0.3em 0.8em;
   border-radius: 5px;
 }
 
-/* ===============================
-   MODALS / POPUPS
-=============================== */
 [class*="modal-"] {
-  background: rgba(var(--nebula-purple), 0.25) !important;
+  background: rgba(var(--nebula-purple),0.25) !important;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(var(--nebula-glow), 0.3);
-  box-shadow: 0 0 50px rgba(var(--nebula-glow), 0.2);
-}
-
-/* ===============================
-   TITLEBAR / HEADER
-=============================== */
-div[class*="typeWindows-"]::after {
-  content: '✨ MIDNIGHT NEBULA ✨';
-  font-weight: 600;
-  line-height: 32px;
-  color: rgb(var(--nebula-glow));
-  font-size: 13px;
-  letter-spacing: 1px;
-  position: absolute;
-  padding: 0 16px;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 32px;
-  background: rgba(var(--nebula-purple), 0.4);
-  backdrop-filter: blur(8px);
-  z-index: -1;
-  text-shadow: 0 0 10px rgba(var(--nebula-glow), 0.5);
+  border: 1px solid rgba(var(--nebula-glow),0.3);
+  box-shadow: 0 0 50px rgba(var(--nebula-glow),0.2);
 }
 
 /* ===============================
@@ -263,15 +239,15 @@ div[class*="typeWindows-"]::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(var(--md-black), 0.3);
+  background: rgba(0,0,0,0.3);
   backdrop-filter: blur(2px);
   pointer-events: none;
   z-index: -1;
 }
 
 /* ===============================
-   SELECTION
+   TEXT SELECTION
 =============================== */
 ::selection {
-  background-color: rgba(var(--nebula-glow), 0.4);
+  background-color: rgba(var(--nebula-glow),0.4);
 }
